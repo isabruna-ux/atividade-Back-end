@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resultados e comunicação | Teste de Back-End</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="TesteBackEnd.css">
+</head>
+<body>
+<header class="topo"><nav aria-label="Navegação principal">
+<strong>Teste de Back-End</strong>
+<a href="TesteBackend.html">Documentos</a>
+<a href="Casos.html">Casos de teste</a>
+<a href="Execucao.html">Execução e controle</a>
+<a href="Resultados.html" aria-current="page">Resultados e equipe</a>
+</nav></header>
+<main>
+
+<section class="hero"><div><h1>Avaliação e comunicação</h1>
+<p>Resultados só têm valor quando alguém os entende e toma decisões com base neles.</p></div>
+<aside class="console" aria-label="Resumo do ciclo"><div class="linha"><span class="ok">82</span> passaram</div><div class="linha"><span class="no">11</span> falharam</div><div class="linha"><span class="wr">7</span> bloqueados</div><div class="linha">Aprovação: 82%</div><div class="linha"><span class="no">Liberação: NÃO recomendada</span></div></aside></section>
+<section id="avaliacao"><h2>E) Avaliação de resultados</h2>
+<div class="grade">
+<article class="doc"><h3>Compare com o critério de saída</h3><p>O ciclo atingiu o que o plano exigia? Defeitos altos em aberto impedem a liberação.</p></article>
+<article class="doc"><h3>Analise as causas</h3><p>Onde os defeitos se concentram: módulo, tipo de entrada ou integração externa?</p></article>
+<article class="doc"><h3>Avalie o risco residual</h3><p>O que não foi testado e qual o impacto se falhar em produção.</p></article>
+<article class="doc"><h3>Registre lições aprendidas</h3><p>O que melhorar no próximo ciclo, em processo e em casos de teste.</p></article></div></section>
+<section id="equipe"><h2>F) Comunicação com a equipe de automação de testes</h2>
+<div class="dois"><div><p>A equipe de automação transforma casos manuais estáveis em scripts. Para isso, precisa de informação precisa e atualizada.</p>
+<ul><li>Envie casos com passos objetivos e dados definidos.</li><li>Indique prioridade: o que entra na regressão primeiro.</li>
+<li>Avise mudanças em contratos de API (campos, status HTTP).</li><li>Combine um padrão de nomes (CT-001) entre manual e automação.</li>
+<li>Reúna-se em ritos curtos: daily, revisão de falhas flaky e retrospectiva.</li></ul></div>
+<aside><h3>Mensagem de exemplo</h3><pre>Olá, time de automação.
+Casos CT-001 a CT-004 (POST /usuarios)
+estão estáveis e prontos para o pipeline.
+Prioridade: alta. Dados em /massa/usuarios.json.
+Atenção: o campo "senha" agora exige 8+ caracteres.</pre></aside></div>
+<details><summary>O que automatizar primeiro?</summary><p>Casos repetitivos, críticos, estáveis e executados com frequência, como a regressão da API.</p></details></section><div class="pagina-nav"><a href="execucao.html">&larr; Execução e controle</a><span></span></div></main>
+<footer><p>Material de estudo sobre testes de software. Tags semânticas: header, nav, main, section, article, figure, aside, footer.</p></footer>
+</body></html>

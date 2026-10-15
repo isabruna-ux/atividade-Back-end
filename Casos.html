@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elaboração do caso de teste | Teste de Back-End</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="TesteBackEnd.css">
+</head>
+<body>
+<header class="topo"><nav aria-label="Navegação principal">
+<strong>Teste de Back-End</strong>
+<a href="TesteBackend.html">Documentos</a>
+<a href="Casos.html" aria-current="page">Casos de teste</a>
+<a href="Execucao.html">Execução e controle</a>
+<a href="Resultados.html">Resultados e equipe</a>
+</nav></header>
+<main>
+
+<section class="hero"><div><h1>B) Elaboração do caso de teste</h1>
+<p>Um caso de teste é um conjunto de condições, dados de entrada e resultado esperado, criado para verificar um comportamento específico do sistema.</p></div><figure><svg viewBox="0 0 400 220" role="img" aria-labelledby="f2"><title id="f2">Pirâmide de testes</title>
+<g font-family="sans-serif" font-size="14" text-anchor="middle">
+<polygon points="200,10 270,90 130,90" fill="#cf3f36"/><text x="200" y="75" fill="#fff">E2E</text>
+<polygon points="130,95 270,95 340,160 60,160" fill="#d99a00"/><text x="200" y="135">Integração (API)</text>
+<polygon points="55,165 345,165 390,212 10,212" fill="#17895c"/><text x="200" y="195" fill="#fff">Unitários</text></g></svg>
+<figcaption>Figura 2. Pirâmide de testes: muitos unitários, menos integração, poucos de ponta a ponta.</figcaption></figure></section>
+<section><h2>Conceito</h2>
+<blockquote>Um bom caso de teste é claro, repetível, independente e tem um único resultado esperado verificável.</blockquote>
+<p>Técnicas comuns: <strong>partição de equivalência</strong> (agrupar entradas que se comportam igual), <strong>análise de valor limite</strong> (testar as bordas) e <strong>tabela de decisão</strong> (combinar condições).</p>
+<h3>Estrutura básica</h3>
+<ol class="passos"><li><strong>Identificador e título</strong>, como CT-001 Cadastrar usuário válido.</li>
+<li><strong>Pré-condições</strong>, como banco limpo e token válido.</li>
+<li><strong>Passos e dados de entrada.</strong></li>
+<li><strong>Resultado esperado</strong>, com status HTTP e corpo da resposta.</li>
+<li><strong>Resultado obtido e situação</strong> (passou ou falhou).</li></ol></section>
+<section><h2>Exemplos: cadastro de usuário (POST /usuarios)</h2>
+<div class="tabela"><table><thead><tr><th>ID</th><th>Entrada</th><th>Esperado</th><th>Tipo</th></tr></thead><tbody>
+<tr><td>CT-001</td><td>nome "Ana", e-mail válido, senha com 8 caracteres</td><td>201 e id do usuário</td><td>Positivo</td></tr>
+<tr><td>CT-002</td><td>e-mail sem "@"</td><td>400 "e-mail inválido"</td><td>Negativo</td></tr>
+<tr><td>CT-003</td><td>senha com 7 caracteres</td><td>400 (limite inferior)</td><td>Valor limite</td></tr>
+<tr><td>CT-004</td><td>e-mail já cadastrado</td><td>409 Conflict</td><td>Regra de negócio</td></tr></tbody></table></div>
+<h3>Do caso de teste ao código</h3>
+<pre>test("CT-002 rejeita e-mail inválido", async () =&gt; {
+  const r = await api.post("/usuarios", { nome: "Eduardo", email: "eduardo.com", senha: "12345678" });
+  expect(r.status).toBe(400);
+  expect(r.body.erro).toMatch(/e-mail/);
+});</pre>
+<details><summary>Dica: erros comuns ao escrever casos</summary><p>Casos vagos ("testar login"), vários resultados esperados num só caso e dados que dependem de outros casos.</p></details></section><div class="pagina-nav"><a href="TesteBackEnd.html">&larr; Documentos</a><a href="execucao.html">Execução e controle &rarr;</a></div></main>
+<footer><p>Material de estudo sobre testes de software. Tags semânticas: header, nav, main, section, article, figure, aside, footer.</p></footer>
+</body></html>

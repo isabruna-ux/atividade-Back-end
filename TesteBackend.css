@@ -1,0 +1,51 @@
+:root{--ink:#1b2236;--paper:#f6f7f4;--card:#fff;--line:#d9ddd6;--pass:#17895c;--fail:#cf3f36;--warn:#d99a00;--accent:#2f4bd1;--muted:#5a6275}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.05rem/1.65 "Atkinson Hyperlegible",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.15;margin:0 0 .6em}
+h1{font-size:clamp(2.2rem,6vw,4rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}
+h3{font-size:1.25rem}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--warn);outline-offset:2px}
+.topo{background:var(--ink);color:#fff;position:sticky;top:0;z-index:9}
+.topo nav{max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;gap:.25rem 1.2rem;align-items:center;padding:.7rem 1.2rem}
+.topo strong{font-family:"Bricolage Grotesque",sans-serif;margin-right:auto;font-size:1.15rem}
+.topo a{color:#dfe4f5;text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent}
+.topo a:hover,.topo a[aria-current=page]{color:#fff;border-color:var(--warn)}
+main{max-width:1100px;margin:auto;padding:0 1.2rem}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:3.5rem 0 2.5rem}
+.hero p{max-width:55ch;color:var(--muted)}
+.console{background:#10152a;color:#d6dcf5;border-radius:6px;padding:1.2rem 1.4rem;font:.92rem/1.8 ui-monospace,Consolas,monospace;box-shadow:8px 8px 0 var(--accent);overflow-x:auto}
+.console .ok{color:#52d6a0}.console .no{color:#ff7d74}.console .wr{color:#ffd166}
+.console .linha{white-space:nowrap;opacity:0;animation:aparece .01s forwards}
+.console .linha:nth-child(1){animation-delay:.3s}.console .linha:nth-child(2){animation-delay:.9s}.console .linha:nth-child(3){animation-delay:1.5s}.console .linha:nth-child(4){animation-delay:2.1s}.console .linha:nth-child(5){animation-delay:2.7s}
+@keyframes aparece{to{opacity:1}}
+section{padding:2.2rem 0;border-top:1px solid var(--line)}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+article.doc{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);padding:1.1rem 1.3rem}
+article.doc:nth-child(2){border-left-color:var(--pass)}article.doc:nth-child(3){border-left-color:var(--fail)}article.doc:nth-child(4){border-left-color:var(--warn)}
+figure{margin:1.2rem 0}
+figure svg,figure video,figure img{width:100%;height:auto;display:block;border:1px solid var(--line);background:#fff}
+figcaption{font-size:.9rem;color:var(--muted);margin-top:.4rem}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:.95rem}
+th,td{border:1px solid var(--line);padding:.55rem .7rem;text-align:left;vertical-align:top}
+th{background:#e9ecf6}
+.tabela{overflow-x:auto}
+.tag{display:inline-block;padding:0 .55em;border-radius:3px;color:#fff;font-weight:700;font-size:.85rem}
+.tag.p{background:var(--pass)}.tag.f{background:var(--fail)}.tag.b{background:var(--warn);color:#222}
+pre{background:#10152a;color:#d6dcf5;padding:1rem;border-radius:6px;overflow-x:auto;font-size:.9rem}
+details{background:var(--card);border:1px solid var(--line);padding:.7rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:700}
+blockquote{margin:1rem 0;padding:.4rem 1.2rem;border-left:5px solid var(--warn);background:#fff8e1}
+.passos{counter-reset:p;list-style:none;padding:0}
+.passos li{counter-increment:p;padding:.6rem 0 .6rem 3rem;position:relative}
+.passos li::before{content:counter(p);position:absolute;left:0;top:.5rem;width:2rem;height:2rem;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+.dois{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+.pagina-nav{display:flex;justify-content:space-between;gap:1rem;padding:2rem 0}
+.pagina-nav a{font-weight:700}
+footer{background:var(--ink);color:#c5cbe0;text-align:center;padding:1.5rem 1rem;margin-top:2rem;font-size:.9rem}
+@media(max-width:760px){.hero,.dois{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}.console .linha{opacity:1}}
+
+.no-fluxo{cursor:pointer}.no-fluxo rect{transition:opacity .15s}.no-fluxo:hover rect,.no-fluxo:focus rect{opacity:.8;stroke:#1b2236;stroke-width:3}.no-fluxo:focus{outline:none}

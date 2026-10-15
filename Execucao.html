@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execução e monitoramento | Teste de Back-End</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="TesteBackEnd.css">
+</head>
+<body>
+<header class="topo"><nav aria-label="Navegação principal">
+<strong>Teste de Back-End</strong>
+<a href="TesteBackend.html">Documentos</a>
+<a href="Casos.html">Casos de teste</a>
+<a href="exe" aria-current="page">Execução e controle</a>
+<a href="Resultados.html">Resultados e equipe</a>
+</nav></header>
+<main>
+
+<section class="hero"><div><h1>Execução, monitoramento e controle</h1>
+<p>Planejar não basta. É preciso rodar os testes, observar o andamento e corrigir a rota quando algo foge do plano.</p></div><figure><svg viewBox="0 0 400 200" role="img" aria-labelledby="f3"><title id="f3">Gráfico de resultados: 82 passaram, 11 falharam, 7 bloqueados</title>
+<g font-family="sans-serif" font-size="13" text-anchor="middle"><line x1="30" y1="170" x2="390" y2="170" stroke="#1b2236"/>
+<rect x="60" y="30" width="80" height="140" fill="#17895c"/><text x="100" y="22">82</text><text x="100" y="190">Passaram</text>
+<rect x="160" y="152" width="80" height="18" fill="#cf3f36"/><text x="200" y="144">11</text><text x="200" y="190">Falharam</text>
+<rect x="260" y="158" width="80" height="12" fill="#d99a00"/><text x="300" y="150">7</text><text x="300" y="190">Bloqueados</text></g></svg>
+<figcaption>Figura 3. Exemplo de resultado de um ciclo com 100 casos executados.</figcaption></figure></section>
+<section id="execucao"><h2>C) Execução do programa</h2>
+<ol class="passos"><li>Preparar o ambiente e os dados de teste (banco, variáveis, serviços externos simulados).</li>
+<li>Executar os casos, manualmente ou por automação.</li>
+<li>Registrar o resultado obtido de cada caso: passou, falhou ou bloqueado.</li>
+<li>Abrir incidentes para cada falha, com evidências.</li>
+<li>Reexecutar após a correção (teste de confirmação) e rodar a regressão.</li></ol>
+<pre>$ npm test -- --coverage
+$ curl -i -X POST localhost:3000/usuarios -d '{"email":"ana.com"}'</pre></section>
+<section id="monitoramento"><h2>D) Monitoramento e controle</h2>
+<p>Monitorar é comparar o realizado com o planejado. Controlar é agir sobre o desvio.</p>
+<div class="tabela"><table><thead><tr><th>Métrica</th><th>O que mostra</th><th>Ação de controle</th></tr></thead><tbody>
+<tr><td>Casos executados / planejados</td><td>Progresso</td><td>Realocar pessoas se estiver atrasado</td></tr>
+<tr><td>Taxa de aprovação</td><td>Qualidade atual</td><td>Priorizar correções</td></tr>
+<tr><td>Defeitos por severidade</td><td>Risco</td><td>Bloquear liberação se houver críticos</td></tr>
+<tr><td>Cobertura de código</td><td>Quanto foi exercitado</td><td>Criar casos para trechos sem cobertura</td></tr></tbody></table></div>
+<p>Ferramentas úteis: Jest ou JUnit, Postman, Jenkins ou GitHub Actions, Grafana e Jira.</p></section><div class="pagina-nav"><a href="casos.html">&larr; Casos de teste</a><a href="resultados.html">Resultados e equipe &rarr;</a></div></main>
+<footer><p>Material de estudo sobre testes de software. Tags semânticas: header, nav, main, section, article, figure, aside, footer.</p></footer>
+</body></html>
